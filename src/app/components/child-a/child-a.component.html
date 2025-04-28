@@ -16,6 +16,17 @@
       type="text"
       id="middleName">
 
+      @if( isWorthy2(FormG)){
+        <div>Formg: {{ JSON.stringify( FormG.get('firstName')?.errors ) }}</div>
+        @if( FormG.get('firstName')?.errors?.['minlength']) {
+          <div>firstName: minLength error </div>
+        }
+
+        @if( FormG.get('firstName')?.errors?.['required']){
+          <div>firstName is Required</div>
+        }
+      }
+
 </form>
 
   <hr/>
