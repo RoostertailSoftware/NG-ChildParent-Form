@@ -1,0 +1,3 @@
+<h1 > Parent - Am I valid?: <span [ngClass]="!parentForm.valid ? 'not-good' : 'all-good'">{{ parentForm.valid }}</span>  </h1>
+<hr/>
+<app-child-a (childsOutput)="addChildFormToArray($event)"/>

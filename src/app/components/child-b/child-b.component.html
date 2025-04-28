@@ -1,0 +1,16 @@
+<h3>
+  Child B (#{{ id() }}) - Am I valid?:
+  <span [ngClass]="!FormG.valid ? 'not-good' : 'all-good'"> {{
+    FormG.valid
+  }}</span>
+</h3>
+<form [formGroup]="FormG">
+<label for="data">Some Data </label>
+<input
+    formControlName="data"
+    type="text"
+    id="data">
+</form>
+@if( !FormG.valid) {
+    <div style="color: red;">This has to have {{id()}} characters to be valid</div>
+}

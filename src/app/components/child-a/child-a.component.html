@@ -1,0 +1,25 @@
+
+<h2> Child A - Am I valid?: <span [ngClass]="!FormG.valid ? 'not-good' : 'all-good'">{{FormG.valid }}</span></h2>
+
+<form [formGroup]="FormG">
+  <label for="lastName">firstName </label>
+  <input
+      formControlName="firstName"
+      type="text"
+      id="lastName">
+  <br/>
+  <br/>
+
+  <label for="middleName">middleName </label>
+  <input
+      formControlName="middleName"
+      type="text"
+      id="middleName">
+
+</form>
+
+  <hr/>
+
+@for ( num of howManyChildB; track num){
+  <app-child-b (childsOutput)="passChildOnToParent($event)" [id]="num" />
+}
