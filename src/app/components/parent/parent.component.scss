@@ -1,7 +1,11 @@
+@use '../../../variables' as var;
+
 .not-good {
-  color: red
+    color: var.$warning-color
 }
 
-.all-good {
-  color: blue
+.output {
+    color: var.$good-color;
+    font-size: 20px;
+    font-weight: bold;
 }

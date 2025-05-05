@@ -1,5 +1,5 @@
 <h3>
-  Child B (#{{ id() }}) - Am I valid?:
+  Child B (#{{ id }}) - Am I valid?:
   <span [ngClass]="!FormG.valid ? 'not-good' : 'all-good'"> {{
     FormG.valid
   }}</span>
@@ -12,5 +12,5 @@
     id="data">
 </form>
 @if( !FormG.valid) {
-    <div style="color: red;">This has to have {{id()}} characters to be valid</div>
+    <div style="color: red;">This has to have {{id}} characters to be valid</div>
 }

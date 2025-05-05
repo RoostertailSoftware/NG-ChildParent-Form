@@ -1,5 +1,5 @@
-import { Component, output, input } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { Component, Input } from '@angular/core';
+import { FormBuilder, FormGroup, FormArray, Validators, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -9,8 +9,8 @@ import { CommonModule } from '@angular/common';
   styleUrl: './child-b.component.scss',
 })
 export class ChildBComponent {
-  childsOutput = output<FormGroup>();
-  id = input.required<number>();
+  @Input({required: true }) parentForm!: FormArray;
+  @Input({required: true}) id!: number
 
   FormG!: FormGroup;
 
@@ -18,11 +18,10 @@ export class ChildBComponent {
 
   ngOnInit(): void {
     this.FormG = this.fb.group({
-      data: [null, [Validators.minLength(this.id()), Validators.required]]
+      data: [null, [Validators.minLength(this.id), Validators.required]]
     });
 
-    // emit this FORM to the Parent
-    this.childsOutput.emit(this.FormG);
-
+    this.parentForm.push(this.FormG);
   }
+
 }
