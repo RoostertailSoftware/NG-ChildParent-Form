@@ -1,1 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+@use './variables' as var;
+
+body {
+    margin: 0px;
+    background-color: var.$background-color;
+    padding: 30px;
+    font-family: var.$font-stack;
+}
+
+.not-good {
+    color: var.$bad-color;
+}
+  
+.all-good {
+    color: var.$good-color;
+}
